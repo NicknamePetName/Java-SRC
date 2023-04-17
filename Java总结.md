@@ -118,7 +118,7 @@
 
 · public类和友好（默认）类
 1. 在另一个类中使用友好类创建对象时要保证他们在同一个包中  
-![访问权限级别](https://thumbnail1.baidupcs.com/thumbnail/c48f7f6ebq19902fec3b89da25c91af9?fid=3933375971-250528-1041504440108804&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-nvys%2bFk9FgAzFuQFgnr9kMaGFdU%3d&expires=8h&chkbd=0&chkv=0&dp-logid=91366697282492965&dp-callid=0&time=1681430400&size=c1707_u960&quality=90&vuk=3933375971&ft=image&autopolicy=1)
+![访问权限级别](https://github.com/NicknamePetName/Photo/blob/main/java/java_konwphoto/%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E4%BC%98%E5%85%88%E7%BA%A7.png?raw=true)
 
 · character类实现了对char基本型数据的类包装  P104  
 · var局部变量: 必须显示指定初值(不可以为null),方法的参数和返回类型不可以用var声明  
