@@ -9,11 +9,9 @@ import java.util.Random;
 //负责计算rpm、gph，并提供一个接口以使其他类可以读取它。
 
 public class DataConvent { 
-    private List<ISensorInterface> iSensorInterfaces = new ArrayList<>();
-
-    
-
+    private List<ISensorInterface> iSensorInterfaces;
     public void addSensor(ISensorInterface iSensor) {
+        iSensorInterfaces = new ArrayList<>();
         iSensorInterfaces.add(iSensor);
     }
 
