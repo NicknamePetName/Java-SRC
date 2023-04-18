@@ -5,13 +5,13 @@ public class FuelFlowImpl implements ISensorInterface {
 
     private double oil;
 
-    FuelFlowImpl(){
-        this.oil = Math.random();
+    FuelFlowImpl() {
+        this.oil = Math.random() * 10;
     }
 
     @Override
-    public double getValue(){
+    public double getValue() {
         return oil;
     }
-    
+
 }

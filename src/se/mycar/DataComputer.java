@@ -12,10 +12,17 @@ public class DataComputer {
 
     DataComputer(double R,DataConvent dataConvents) {
         this.R = R;
-        this.mph = dataConvents.getRpm() * Math.PI * R * 60 / 1000;
-        this.mpg = this.mph / dataConvents.getGph();
+        this.mph = dataConvents.getValue() * Math.PI * R * 60 / 10000;
+        this.mpg = this.mph / dataConvents.getValue();
         this.distance = this.mph * dataConvents.getTime();
     }
+
+    /* DataComputer(double R,DataConvent dataConvents) {
+        this.R = R;
+        this.mph = dataConvents.getMph() * Math.PI * R * 60 / 10000;
+        this.mpg = this.mph / dataConvents.getMpg();
+        this.distance = this.mph * dataConvents.getTime();
+    } */
 
     public double getMph() {
         return mph;

@@ -5,7 +5,7 @@ public class RotatingSignalImpl implements ISensorInterface {
     private double rev;
 
     RotatingSignalImpl(){
-        this.rev = Math.random();
+        this.rev = Math.random() * 10000;
     }
 
     @Override

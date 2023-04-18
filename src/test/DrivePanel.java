@@ -1,4 +1,6 @@
-package se.mycar;
+package test;
+
+import se.mycar.DataComputer;
 
 public class DrivePanel {
     private double mpg;
