@@ -6,9 +6,9 @@ public class DataComputer {
     // 车轮半径
     double R = 0;
 
-    double mph;
-    double mpg;
-    double distance;
+    private double mph;
+    private double mpg;
+    private double distance;
 
     DataComputer(double R,DataConvent dataConvents) {
         this.R = R;
