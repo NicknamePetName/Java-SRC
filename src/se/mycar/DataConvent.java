@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 
-//负责计算rpm、gph，并提供一个接口以使其他类可以读取它。
+//整合数据
 
 public class DataConvent { 
     private List<ISensorInterface> iSensorInterfaces= new ArrayList<>();
