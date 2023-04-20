@@ -25,7 +25,7 @@
 · 客户端不应该被迫依赖于它们不使用的方法。接口应该小而精，不应该存在不必要的方法。例如，ISensorInterface 和 IDisplayInterface 接口都只包含一个方法，它们只暴露了客户端需要的功能。
 
 4. 开闭原则（OCP）  
-· 软件实体（类、模块、函数等）应该对扩展开放，对修改关闭。例如，DirveDisplay 类的 addDisplay 方法和 getDisplay 方法都是开放的，可以添加新的 IDisplayInterface 实现类，而不需要修改 DirveDisplay 类的代码。  
+· 软件实体（类、模块、函数等）应该对扩展开放，对修改关闭。例如，DirveDisplay 类的 addDisplay 方法和 getDisplay 方法都是开放的，可以添加新的 IDisplayInterface 实现类，而不需要修改 DirveDisplay 类的代码。DataConvent 类 的 getValue 方法 、getiSensorInterfaces 方法和 getTime 方法都是开放的，可以添加新的 ISensorInterface 实现类，而不需要修改 DataConvent 类的代码。
 
 5. 里氏替换原则（LSP）  
 · 子类可以替换它们的父类，而不会影响程序的正确性。例如，RotatingSignalImpl 类和 FuelFlowImpl 类都是 ISensorInterface 接口的实现类，它们可以在不影响程序正确性的情况下被用于代替 ISensorInterface 类型的变量。  
