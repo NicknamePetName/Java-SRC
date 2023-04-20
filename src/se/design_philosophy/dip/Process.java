@@ -1,4 +1,4 @@
-package se.design_philosophy.dgp;
+package se.design_philosophy.dip;
 
 public class Process {
     public static void main(String[] args) {
