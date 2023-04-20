@@ -9,9 +9,9 @@ import java.util.Random;
 //整合数据
 
 public class DataConvent { 
-    private List<ISensorInterface> iSensorInterfaces= new ArrayList<>();
-    int count = 0;
-    public void addSensor(ISensorInterface iSensor) {
+    private List<ISensorInterface> iSensorInterfaces= new ArrayList<>();  //Sensor接口集合
+    int count = 0;//用来获取集合下一个元素
+    public void addSensor(ISensorInterface iSensor) {      //add   FuelFlowImpl,RotatingSignalImpl
         iSensorInterfaces.add(iSensor);
     }
 
@@ -30,7 +30,7 @@ public class DataConvent {
     public List<ISensorInterface> getiSensorInterfaces() {
         return iSensorInterfaces;
     }
-    public double getTime(){
+    public double getTime(){         //获得时间
         Random random = new Random();
         return random.nextInt(10);
     }

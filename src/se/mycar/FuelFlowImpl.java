@@ -6,7 +6,7 @@ public class FuelFlowImpl implements ISensorInterface {
     private double oil;
 
     FuelFlowImpl() {
-        this.oil = Math.random() * 10;
+        this.oil = Math.random() * 10;         //获取燃料流并转换为gph
     }
 
     @Override

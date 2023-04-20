@@ -1,6 +1,8 @@
 package se.mycar;
 
-public class DisplayDistanceImpl implements IComputerInterface {
+//实现Display接口,显示距离
+
+public class DisplayDistanceImpl implements IDisplayInterface {
     DataComputer dataComputer;
     DisplayDistanceImpl(DataComputer dataComputer) {
         this.dataComputer = dataComputer;

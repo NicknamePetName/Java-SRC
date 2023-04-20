@@ -1,6 +1,6 @@
 package se.mycar;
-
-public class DisplayMphImpl implements IComputerInterface {
+//实现Display接口，显示速度，并且超速警报
+public class DisplayMphImpl implements IDisplayInterface {
     DataComputer dataComputer;
     DisplayMphImpl(DataComputer dataComputer) {
         this.dataComputer = dataComputer;
