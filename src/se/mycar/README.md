@@ -16,22 +16,24 @@
 · 涉及到了以下设计原则：  
 
 1. 单一职责原则（SRP）  
-· 每个类都只有一个职责，以及它的变化的原因。例如，RotatingSignalImpl 类只有获取转速的功能，而 FuelFlowImpl 类只有获取燃料流的功能，它们都只实现了 ISensorInterface 接口中的 getValue() 方法。  
+· 每个类都只有一个职责，以及它的变化的原因。  RotatingSignalImpl 类只有获取转速的功能，而 FuelFlowImpl 类只有获取燃料流的功能，它们都只实现了 ISensorInterface 接口中的 getValue() 方法。  
+· DisplayMpgImpl 类只有显示mpg功能、DisplayDistanceImpl 类只有显示里程的功能，它们都只实现了 ISensorInterface 接口中的 getValue() 方法。  
 
 2. 依赖倒置原则（DIP）  
-· 高层次的模块不应该依赖于低层次的模块，它们应该依赖于抽象。同时，抽象不应该依赖于细节，细节应该依赖于抽象。例如，DisplayMphImpl 类、DisplayMpgImpl 类和 DisplayDistanceImpl 类都依赖于 IDisplayInterface 接口，而不是具体的实现类。  
+· 高层次的模块不应该依赖于低层次的模块，它们应该依赖于抽象。同时，抽象不应该依赖于细节，细节应该依赖于抽象。  DisplayMphImpl 类、DisplayMpgImpl 类和 DisplayDistanceImpl 类都依赖于 IDisplayInterface 接口，而不是具体的实现类。  
+· RotatingSignalImpl 类和 FuelFlowImpl 类都依赖于ISensorInterface 接口，而不是具体的实现类。  
 
 3. 接口隔离原则（ISP）  
-· 客户端不应该被迫依赖于它们不使用的方法。接口应该小而精，不应该存在不必要的方法。例如，ISensorInterface 和 IDisplayInterface 接口都只包含一个方法，它们只暴露了客户端需要的功能。
+· 客户端不应该被迫依赖于它们不使用的方法。接口应该小而精，不应该存在不必要的方法。  ISensorInterface 和 IDisplayInterface 接口都只包含一个方法，它们只暴露了客户端需要的功能。  
 
 4. 开闭原则（OCP）  
-· 软件实体（类、模块、函数等）应该对扩展开放，对修改关闭。例如，DirveDisplay 类的 addDisplay 方法和 getDisplay 方法都是开放的，可以添加新的 IDisplayInterface 实现类，而不需要修改 DirveDisplay 类的代码。  
+· 软件实体（类、模块、函数等）应该对扩展开放，对修改关闭。  DirveDisplay 类的 addDisplay 方法和 getDisplay 方法都是开放的，可以添加新的 IDisplayInterface 实现类，而不需要修改 DirveDisplay 类的代码。  
 · DataConvent 类 的 getValue 方法 、getiSensorInterfaces 方法和 getTime 方法都是开放的，可以添加新的 ISensorInterface 实现类，而不需要修改 DataConvent 类的代码。  
 · DataComputer 类的构造方法实现了不同车的车轮半径，实现不同类型的车，不需要修改代码。  
 · ISensorInterface、IDisplayInterface、RotatingSignalImpl、FuelFlowImpl、DisplayMphImpl、DisplayMpgImpl、DisplayDistanceImpl、DirveDisplay、DataConvent 这些类的代码添加新的功能，都不需要修改代码，从而实现了开闭原则。  
 
 5. 里氏替换原则（LSP）  
-· 子类可以替换它们的父类，而不会影响程序的正确性。例如，RotatingSignalImpl 类和 FuelFlowImpl 类都是 ISensorInterface 接口的实现类，它们可以在不影响程序正确性的情况下被用于代替 ISensorInterface 类型的变量。  
+· 子类可以替换它们的父类，而不会影响程序的正确性。  RotatingSignalImpl 类和 FuelFlowImpl 类都是 ISensorInterface 接口的实现类，DisplayMphImpl 类、DisplayMpgImpl 类、DisplayDistanceImpl 类都是 IDisplayInterface 接口的实现类，它们可以在不影响程序正确性的情况下被用于代替 ISensorInterface 类型的变量。  
 
 6. 迪米特法则（LoD）  
-· 一个对象应该对其他对象有尽可能少的了解。类之间的耦合应该尽可能地松散。例如，DataComputer 类只依赖于 DataConvent 类，不需要知道 RotatingSignalImpl 类和 FuelFlowImpl 类的具体实现。
+· 一个对象应该对其他对象有尽可能少的了解。类之间的耦合应该尽可能地松散。  DataComputer 类只依赖于 DataConvent 类，不需要知道 RotatingSignalImpl 类和 FuelFlowImpl 类的具体实现。
