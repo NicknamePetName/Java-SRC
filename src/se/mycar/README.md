@@ -17,7 +17,7 @@
 
 1. 单一职责原则（SRP）  
 · 每个类都只有一个职责，以及它的变化的原因。  RotatingSignalImpl 类只有获取转速的功能，而 FuelFlowImpl 类只有获取燃料流的功能，它们都只实现了 ISensorInterface 接口中的 getValue() 方法。  
-· DisplayMpgImpl 类只有显示mpg功能、DisplayDistanceImpl 类只有显示里程的功能，它们都只实现了 ISensorInterface 接口中的 getValue() 方法。  
+· DisplayMphImpl 类只显示速度 、 DisplayMpgImpl 类只有显示mpg功能、DisplayDistanceImpl 类只有显示里程的功能，它们都只实现了 ISensorInterface 接口中的 getValue() 方法。  
 
 2. 依赖倒置原则（DIP）  
 · 高层次的模块不应该依赖于低层次的模块，它们应该依赖于抽象。同时，抽象不应该依赖于细节，细节应该依赖于抽象。  DisplayMphImpl 类、DisplayMpgImpl 类和 DisplayDistanceImpl 类都依赖于 IDisplayInterface 接口，而不是具体的实现类。  
