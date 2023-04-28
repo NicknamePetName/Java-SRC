@@ -168,7 +168,37 @@
 · 一个abstract类是abstract类的子类，它可以重写父类的abstract方法，亦可以继承abstract类的方法  
 · abstract类的对象做上转型对象：使用abstract类声明对象，不能用new创建对象，但该对象可以成为其子类的上转型对象，就可以调用子类重写的方法  
 `对象可以赋值为null  (Test test = null;)`   
- 
+
+
+# 接口
+· public abstract float getName();   <==等价==>    float getName();  
+· public static final int r = 100;   <==等价==>    int r = 100;    //可省略  
+```
+    interface Com {
+        public static final int MAX = 100;                 //等价写法: int MAX = 100;
+        public abstract void add();                        //等价写法: void add();
+        public abstract float sun(float x,float y)         //等价写法: float sun(float x,float y);
+    }
+```
+· 接口体中的default实例方法：接口中具有方法体的实例方法，访问权限是public可以省略（不可以定义default的static方法）这些方法可以在实现接口的类中直接调用。  `有方法体`   
+· 接口体中的static方法  `有方法体`   
+```
+    public interface Com {
+        public static void f() {
+            System.out.println("接口中的static方法")
+        }
+    }
+```  
+· 接口体中的pricate方法:接口中定义private方法(将某些算法封装在private方法中)，供default实例方法调用，实现算法的复用 `有方法体`    
+· *重写接口中的方法*：
+1. 一个类实现某个接口，也就拥有了接口中的常量、default方法(去掉default关键字)，该类也可以重写接口中的default方法(需去掉default关键字)。  
+2. 一个非abstract类实现了某个接口，这个类必须重写该接口的abstract方法(去掉abstract，给出方法体) `非abstract类必须实现接口的abstract方法（程实现了这个接口）`    
+3. 一个abstract类实现了某个接口，该类可以原则重写接口的abstract方法或直接拥有接口的abstract方法  
+4. 注:类实现某接口，但并不拥有接口中的static方法和private方法。接口中除了private方法，其他的访问权限都是public,重写时不能省略public，否则是降低了访问权限    
+
+· 接口中的常量和static方法: 可以用接口名直接调用。  
+· 
+· 
 
 
 
