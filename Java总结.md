@@ -162,8 +162,13 @@
 ![上转型对象](https://github.com/NicknamePetName/Photo/blob/main/java/java_konwphoto/%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%AF%B9%E8%B1%A1.png?raw=true)
 
 
-· 
-
+· abstract方法：只允许声方法，不允许实现。不允许final和abstract同时修饰一个方法或类。不允许static,private修饰abstract方法  
+· abstract类：abstract类中可以有abstract方法和非abstract方法。非abstract类中不可以有abstract方法  
+· abstract类：不能用new创建对象，非抽象子类必须重写抽象父类的抽象方法   
+· 一个abstract类是abstract类的子类，它可以重写父类的abstract方法，亦可以继承abstract类的方法  
+· abstract类的对象做上转型对象：使用abstract类声明对象，不能用new创建对象，但该对象可以成为其子类的上转型对象，就可以调用子类重写的方法  
+`对象可以赋值为null  (Test test = null;)`   
+ 
 
 
 
