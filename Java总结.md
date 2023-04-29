@@ -196,10 +196,37 @@
 3. 一个abstract类实现了某个接口，该类可以原则重写接口的abstract方法或直接拥有接口的abstract方法  
 4. 注:类实现某接口，但并不拥有接口中的static方法和private方法。接口中除了private方法，其他的访问权限都是public,重写时不能省略public，否则是降低了访问权限    
 
-· 接口中的常量和static方法: 可以用接口名直接调用。  
-· 
-· 
+· 接口中的常量和static方法: 可以用接口名直接调用。  、
 
+· public接口可以在任何类中实现，友好(默认)接口只能在同一包实现。  
+· 父类实现某接口，子类自然也实现。   
+· 接口可以被继承,通过关键字extends声明一个接口是另一个接口的子接口，因为接口中的方法和常量都是public，所以子接口继承父接口中的全部实例方法和常量  
+· java提供的接口都在包中，import不仅可以引入包中的类，也可以引入接口    
+
+· 接口回调：  
+```
+    Com com;   //接口  
+    ImpleCom impleCom = new ImpleCom();    //实现接口的类ImpleCom  
+    com = impleCom;   //接口回调，用com. 调用类中实现的接口方法  
+```
+· 接口回调无法调用类中的其他非接口方法  
+
+· 函数接口：一个接口中只有一个abstract方法，则称为 单接口(或函数接口)
+· Lambda表达式：主要用在但接口（函数接口）   
+```  
+    (参数列表) -> {
+        方法体
+    }
+
+例子： public interface SingleCom {
+    public abstract int computeSum(int a,int b);
+}
+    SingleCom sm = (a,b) -> {
+        return a+b;
+    }
+```  
+
+· 
 
 
 
