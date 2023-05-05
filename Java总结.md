@@ -226,7 +226,12 @@
     }
 ```  
 
-· 
+· abstract类与接口比较：  
+1. abstract类和接口都可以有abstract方法  
+2. 接口中只可以有常量，不可以有变量。abstract类中都可以有  
+3. abstract类中可以有非abstract方法，接口中abstract、default、static方法  
+
+
 
 
 
