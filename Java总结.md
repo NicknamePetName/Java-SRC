@@ -218,7 +218,8 @@
         方法体
     }
 
-例子： public interface SingleCom {
+例: 
+    public interface SingleCom {
     public abstract int computeSum(int a,int b);
 }
     SingleCom sm = (a,b) -> {
@@ -232,7 +233,231 @@
 3. abstract类中可以有非abstract方法，接口中abstract、default、static方法  
 
 
+# 第七章内部类与异常类  
+### 内部类  
+· 内部类与外嵌类：  
+1. 外嵌类的成员变量在内部类有效，内部类中的方法可以调用外嵌类的方法  
+2. 内部类：不可以声明类变量和类方法，内部类声明的对象可以是外嵌类的成员  
+3. 内部类只能外嵌类使用，其他类不可以用某个类的内部类声明对象。
+4. 不能用proteccted和private修饰类，但可以修饰内部类  
+5. 外嵌类的成员变量在内部类中有效，所以交互更加方便   
+6. 非内部类不可以是static类，static内部类不可以操作外嵌类中的实例变量（程序就可以在其他类中使用static类创建对象）  
+``` 
+    RedCowFarm.RedCow redCow = new RedCowFarm.RedCow(180,119,6000);
+    redCow.speak();
+```  
 
+##### 匿名类  
+```
+    new Bank() {
+        匿名类的类体
+    }
+    new Bank(100) {
+        匿名类的类体
+    }
+```  
+· 和子类有关的匿名类  
+1. 匿名类可以继承和重写父类的方法  
+2. 使用匿名类时，必然是在某个类中直接用匿名类创建对象，所以匿名类是内部类  
+3. 匿名类可以访问外嵌类的成员变量和方法，匿名类的类体中不可以声明static成员变量和static方法  
+4. 匿名类创建对象时要直接使用父类的构造方法  
+```
+    public abstract class Bank {
+        int money;
+        public Bank() {
+            money = 100;
+        }
+        public Bank(int money) {
+            this.money = money;
+        }
+        public abstract void output();
+    }
+
+    public class ShowBank {
+        void showMess(Bank bank) {
+            bank.output(); 
+        } 
+    }
+
+    public class Example7_2 {
+        public static void main(String args[]) {
+            ShowBank showBank = new ShowBank();
+            showBank.showMess(new Bank() { //向参数传递Bank的匿名子类对象
+                                public void output() {
+                                     money+=100;
+                                    System.out.printf("中国银行资金：%3d\n",money); 
+                                }  
+                            }
+                        );
+            showBank.showMess(new Bank(500) { //向参数传递Bank的匿名子类对象
+                                public void output() {
+                                     money+=100;
+                                    System.out.printf("建设银行资金：%3d\n",money); 
+                                }  
+                            }
+                        );
+       } 
+    }
+```  
+
+· 和接口有关的匿名类    
+```
+    new ComImpl() {
+        实现接口类的匿名类的类体
+    }
+```   
+```  
+    interface SpeakHello {
+        void speak();
+    }
+    class HelloMachine {
+        public void turnOn(SpeakHello hello) {
+            hello.speak();
+        }
+    }
+    public class Example7_3 {
+        public static void main(String args[]) {
+            HelloMachine machine = new HelloMachine();
+            machine.turnOn( new SpeakHello() {
+                                public void speak() {
+                                    System.out.println("hello,you are welcome!");
+                                }
+                            } 
+                        ); 
+            machine.turnOn( new SpeakHello() {
+                                public void speak() {
+                                    System.out.println("你好，欢迎光临!");
+                                }
+                            } 
+                        ); 
+        } 
+    }
+```    
+
+· 用Lambda表达式代替匿名类（函数接口，单接口）    
+```  
+    interface SpeakHello {
+        void speak();
+    }
+    class HelloMachine {
+        public void turnOn(SpeakHello hello) {
+            hello.speak();
+        }
+    }
+    public class Example7_4 {
+        public static void main(String args[]) {
+            HelloMachine machine = new HelloMachine();
+            machine.turnOn( ()->{        //向形参传递Lambada表达式的值。
+                                System.out.println("hello,you are welcome!");
+                            }
+                        ); 
+            machine.turnOn( ()->{       //向形参传递Lambada表达式的值。
+                                System.out.println("你好，欢迎光临!");
+                            }
+                        ); 
+        } 
+    }
+```   
+
+### 异常类  
+· try-catch
+· 异常对象可调用如下方法得到或输出有关异常的信息：  
+```
+    pubilc String getMessage();
+    public void printStackTrace();  //打印堆栈信息
+    public String toString();
+```
+
+
+
+```  
+    try{
+        包含可能发生异常的语句
+        即可能throw关键字抛出了异常对象（抛出Exception子类对象）
+    }
+    catch(ExceptionSubClass1 e){
+        ……
+    }
+    catch(ExceptionSubClass2 e){
+        ……
+    }
+```   
+
+· 各个catch参数中的异常类都是Exception的某个子类，表明try部分可能发生的异常，这些子类之间如果有父子关系，那么catch参数是子类在父类前面   
+
+##### 自定义异常类  
+· 一个方法在声明时可以使用 throws 关键字声明要产生的若干个异常，并在该方法的方法体中具体给出产生异常的操作，即用相应的异常类创建对象，并使用 throe 关键字抛出该异常对象，导致该方法结束执行。程序必须在 try-catch 块语句中调用可能发生异常的方法，其中 catch 的作用就是捕获 throw 关键字抛出的异常对象。  
+· 注：throw是Java的关键字，该关键字的作用就是抛出异常。throw 和 throws 是两个不同的关键字   
+```  
+    public class Bank {
+        private int money;
+
+        public void income(int in, int out) throws BankException {
+            if (in <= 0 || out >= 0 || in + out <= 0) {
+                throw new BankException(in, out); // 方法抛出异常，导致方法结束
+            }
+            int netIncome = in + out;
+            System.out.printf("本次计算出的纯收入是:%d元\n", netIncome);
+            money = money + netIncome;
+        }
+
+        public int getMoney() {
+            return money;
+        }
+    }
+
+    public class BankException extends Exception {
+        String message;
+
+        public BankException(int m, int n) {
+            message = "入账资金" + m + "是负数或支出" + n + "是正数，不符合系统要求.";
+        }
+
+        public String warnMess() {
+            return message;
+        }
+    }
+
+    public class Example7_6 {
+        public static void main(String args[]) {
+            Bank bank = new Bank();
+            try {
+                bank.income(200, -100);
+                bank.income(300, -100);
+                bank.income(400, -100);
+                System.out.printf("银行目前有%d元\n", bank.getMoney());
+                bank.income(200, 100);
+                bank.income(99999, -100);
+            } catch (BankException e) {
+                System.out.println("计算收益的过程出现如下问题:");
+                System.out.println(e.warnMess());
+            }
+            System.out.printf("银行目前有%d元\n", bank.getMoney());
+        }
+    }
+```  
+
+##### 断言
+· 断言语句在调试代码阶段非常有用，断言语句一般用于程序不准备通过捕获异常来处理的错误（例如，当发生某个错误时要求程序必须立即停止执行）。在调试代码阶段让断言语句发挥作用，这样就可以发现一些致命的错误，当程序正式运行时就可以关闭断言语句，但仍把断言语句保留在源代码中，方便以后应用程序调试，则可以重新启用断言语句.  
+· **断言语句的语法格式**：使用关键字 assert 声明一个断言语句，断言语句有两种格式：  
+1. assert booleanExpression;  //booleanExpression必须是值为boolean型的表达式  
+2. assert booleanExpression:messageExpression;   //messageExpression可以是值为字符串的表达式
+
+· 使用 assert booleanExpression 形式的断言语句，booleanExpression的值为true时，程序从断言语句处继续执行；反之停止执行  
+· 使用 assert booleanExpression:messageExpression 形式的断言语句，booleanExpression的值为true时，程序从断言语句处继续执行；当值为false时，程序从断言语句处停止执行，并输出messageExpression的值，提示用户出现了怎样的问题  
+
+· **启用与关闭断言语句**：  
+· 启用断言语句： 在调式程序可以使用 `-ea` 启用断言语句      (例：java -ea 类名)   
+· 关闭断言语句：当使用Java解释器直接运行应用程序时，默认关闭断言语句   
+
+· finally 子语句的 try-catch语句：无论 try 部分是否发生异常，finally 子语句都会被执行    
+```
+    try{}
+    catch(ExceptionSubClass e) {}
+    finally{}
+```  
+1. try-catch 语句中执行了 return 语句，finally 语句仍然被执行.  
+2. try-catch 语句中执行了程序退出代码，即"System.exit(0)",则不执行 finally 语句  
 
 
 
