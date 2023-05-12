@@ -510,7 +510,7 @@
 
 · `public boolean contains(String s)`:判断当前 String 对象的字符序列是(true)否包含参数 s 的字符序列  
 
-· `public int indexOf(String s)`:从当前 Strign 对象的0位置索引，检索首次出现的 s 字符序列的位置并返回该位置，没有则返回-1    
+· `public int indexOf(String s)`:从当前 String 对象的0位置索引，检索首次出现的 s 字符序列的位置并返回该位置，没有则返回-1    
 · `public int lastIndexOf(String s)`:从当前 Strign 对象的0位置索引，检索最后一次出现的 s 字符序列的位置并返回该位置，没有则返回-1     
 · `public int indexOf(String s,int startpoint)`和`public int lastIndexOf(String s,int startpoint)`:startpoint指定检索起始位置
 
