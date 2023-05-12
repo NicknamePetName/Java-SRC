@@ -170,7 +170,7 @@
 `对象可以赋值为null  (Test test = null;)`   
 
 
-# 接口
+# 第六章 接口
 · public abstract float getName();   <==等价==>    float getName();  
 · public static final int r = 100;   <==等价==>    int r = 100;    //可省略  
 ```
@@ -233,7 +233,7 @@
 3. abstract类中可以有非abstract方法，接口中abstract、default、static方法  
 
 
-# 第七章内部类与异常类  
+# 第七章 内部类与异常类  
 ### 内部类   
 · 内部类可以是 final 类
 · 内部类与外嵌类：  
@@ -463,11 +463,47 @@
 2. try-catch 语句中执行了程序退出代码，即"System.exit(0)",则不执行 finally 语句  
 
 
+# 第八章 常用实用类  
 
+## String类
+1. Java 定义 String 为 final 类，用户不能扩展，即不可以有子类  
+2. 常量对象： ` String str = "你好 12.97"; ` 常量池中的数据在程序运行期间不允许改变  
+3. String 对象： ` String str = new String("Hello") ` （new 运算符构造出的对象都不在常量池中）  
+```
+    String address = System.out.println(str);  //得到 String 对象 str 的引用
+    String com = new String(str);              //用参数 str 的实体构造 String 对象 com 的实体
 
+    char a[] = {'j','a','v','a'};
+    String str = String(a);                    //String(char a[]) :效果等同于String str = new String("java");
 
+    String(char a[],int startIndex,int count):参数 startIndex 指在 a 中起始位置，count 指在起始位置后截取字符的个数
+```  
+4. 引用 String 常量:  
+```
+    String s1,s2;  //s1,s2的值是可以被改变的
+    s1 = "你好";
+    s2 = "你好";   // s1 == s2 结果是true;
+    s2 = s1;      //  s1 == s2 结果是true;
+```
+#### String对象的并置
+· String 可以用 "+" 进行并置运算得到一个新的 String 对象：
+```
+    String str = "你" + "好"; //结果还是常量，在常量池中
 
+    String s1 = "你"
+    String string1 = s1 + s2;
+    String string2 = s1 + "好";  //string1,string2 右侧有变量参与了并置运算相当于"new String("你好")",在动态区产生新对象   
+```  
+· 两个常量并置运算，结果是常量，常量池没有就加入常量池，否则"引用"常量值的常量  
 
+#### String类的常用方法  
+· `public int length()`:获取一个 String 对象的字符序列长度    
+  
+· `public boolean equals(String s)`:比较两个字符序列是否相同(true)  s1.equals(s2);  
+· `public boolean equalsIgboreCase(String s)`:比较两个字符序列是否相同(true),忽略大小写   
+  
+· `public boolean startsWith(String s)`:判断 String 对象的字符前缀是(true)否为参数指定的 String 对象 s 的字符序列    
+· `public boolean endsWith(String s)`:判断 String 对象的字符后缀是(true)否为参数指定的 String 对象 s 的字符序列    
 
 
 
