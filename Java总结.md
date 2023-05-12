@@ -463,7 +463,7 @@
 2. try-catch 语句中执行了程序退出代码，即"System.exit(0)",则不执行 finally 语句  
 
 
-# 第八章 常用实用类  
+# 第八章 常用实用类 P192  
 
 ## String类
 1. Java 定义 String 为 final 类，用户不能扩展，即不可以有子类  
@@ -500,12 +500,67 @@
 · `public int length()`:获取一个 String 对象的字符序列长度    
   
 · `public boolean equals(String s)`:比较两个字符序列是否相同(true)  s1.equals(s2);  
-· `public boolean equalsIgboreCase(String s)`:比较两个字符序列是否相同(true),忽略大小写   
+· `public boolean equalsIgnoreCase(String s)`:比较两个字符序列是否相同(true),忽略大小写   
   
 · `public boolean startsWith(String s)`:判断 String 对象的字符前缀是(true)否为参数指定的 String 对象 s 的字符序列    
 · `public boolean endsWith(String s)`:判断 String 对象的字符后缀是(true)否为参数指定的 String 对象 s 的字符序列    
 
+· `public int compareTo(String s)`:按字典序与参数 s 字符序列比较大小，小于返回负数，等于返回0，大于返回正数   
+· `public int compareToIgnoreCase(String s)`:按字典序与参数 s 字符序列比较大小，忽略大小写，小于返回负数，等于返回0，大于返回正数   
 
+· `public boolean contains(String s)`:判断当前 String 对象的字符序列是(true)否包含参数 s 的字符序列  
+
+· `public int indexOf(String s)`:从当前 Strign 对象的0位置索引，检索首次出现的 s 字符序列的位置并返回该位置，没有则返回-1    
+· `public int lastIndexOf(String s)`:从当前 Strign 对象的0位置索引，检索最后一次出现的 s 字符序列的位置并返回该位置，没有则返回-1     
+· `public int indexOf(String s,int startpoint)`和`public int lastIndexOf(String s,int startpoint)`:startpoint指定检索起始位置
+
+· `public String substring(int startpoint)`:获得一个新对象，String 新对象是赋值 startponit 位置到结束的字符序列    
+· `public String substring(int startpoint,int end)`:获得一个新对象，String 新对象是赋值 startponit 位置到 end-1 位置的字符序列    
+
+· `public String trim()`:字符串去空格    
+
+#### String对象基本数据的相互转换 P200    
+· `public static int parseInt(String s) throws NumberFormatException`:将数字字符 s 转化为 int(或其他类型) 型数据 Integer.parseInt(s)    
+
+· `public static String valueOf(int n)`:将 int(或其他) 型数据转换为 String 对象   
+
+· 基本数据进制的表示：返回（）进制的 String 对象表示 P200    
+
+· main()方法参数化：略    
+
+· `public String toString()`:对象的 String 对象表示    
+
+#### 正则表达式 略
+
+#### StringTokenizer类 略  
+
+#### Scanner类 略
+
+#### Pattern类与Matcher类 略
+
+#### StringBuffer类 lue
+
+#### 日期与时间类 略
+
+#### Match类、BigInteger类、Random类 略  
+
+#### Class类与反射 略  
+
+#### Arrays类、System类、Console类 略
+
+# 第九章 组件及事件处理  P254  
+
+# 第十章 输入和输出流 P303    
+
+# 第十一章 JDBC与MySQL数据库 P347    
+
+# 第十二章 Java多线程机制 P385  
+
+# 第十三章 Java网络编程 P419  
+
+# 第十四章 图形、图像与音频 P445  
+
+# 第十五章 泛型与集合框架 P461
 
 
 

@@ -23,5 +23,6 @@ public class Test {
               address = System.identityHashCode(testTwo);
               System.out.printf("testTwo的引用:%x\n", address);
               System.out.println(hello == testTwo); // 输出结果是false
+              System.out.println(testTwo);
        }
 }
