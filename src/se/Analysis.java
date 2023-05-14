@@ -1,4 +1,4 @@
-package test;
+package se;
 
 public class Analysis {
     String string;
@@ -7,7 +7,7 @@ public class Analysis {
     Analysis() {
     };
 
-    Analysis(String string) {
+    public Analysis(String string) {
         this.string = string;
     }
 
