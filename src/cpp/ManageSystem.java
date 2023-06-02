@@ -378,7 +378,7 @@ class ManageSystem
         }
     }
 }
-class test{
+class sa{
     public static void main(String[]args){
       ManageSystem manageSystem=new ManageSystem();
       manageSystem.Menu();

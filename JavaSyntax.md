@@ -118,7 +118,7 @@
 
 · public类和友好（默认）类
 1. 在另一个类中使用友好类创建对象时要保证他们在同一个包中  
-![访问权限级别](https://github.com/NicknamePetName/Photo/blob/main/java/java_konwphoto/%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E4%BC%98%E5%85%88%E7%BA%A7.png?raw=true)
+![访问权限级别](https://github.com/NicknamePetName/Photo/blob/main/java/JavaSyntaxPhoto/%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E4%BC%98%E5%85%88%E7%BA%A7.png?raw=true)
 
 · character类实现了对char基本型数据的类包装  P104  
 · var局部变量: 必须显示指定初值(不可以为null),方法的参数和返回类型不可以用var声明  
@@ -159,8 +159,8 @@
 2. 上转型对象可以访问子类继承和隐藏的成员变量，亦可以调用子类继承和重写的方法(调用重写的方法等同于子类对象的调用)  
 · 注：可以将上转型对象在强制转换为子类对象，这是具备子类的所有属性与功能  
 · 注：子类重写了父类静态方法，则子类对象的上转型对象不能调用子类重写的静态方法，只能调用父类的静态方法  
-![上转型对象](https://github.com/NicknamePetName/Photo/blob/main/java/java_konwphoto/%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%AF%B9%E8%B1%A1.png?raw=true)
-
+![上转型对象](https://github.com/NicknamePetName/Photo/blob/main/java/JavaSyntaxPhoto/%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%AF%B9%E8%B1%A1.png?raw=true)
+                
 
 · abstract方法：只允许声方法，不允许实现。不允许final和abstract同时修饰一个方法或类。不允许static,private修饰abstract方法  
 · abstract类：abstract类中可以有abstract方法和非abstract方法。非abstract类中不可以有abstract方法  

@@ -689,7 +689,7 @@ class ManageSystem{
     }
 }
 
-class test {
+class ss {
     public static void main(String[] args) {
         ManageSystem manageSystem = new ManageSystem();
         manageSystem.Menu();

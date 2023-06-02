@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class Process {
     public static void main(String[] args) {
-        System.out.println("请插入储蓄卡！");
+        User user = new User();
+        user.read();
         Scanner input = new Scanner(System.in);
-        System.out.print("请输入您的账号:");
+        System.out.print("请输入您的账号:");//相当于读取账号
         String userName = input.next();
         System.out.print("请输入您的密码:");
         input.close();
