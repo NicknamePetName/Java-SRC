@@ -1,0 +1,74 @@
+@startuml
+title Process Scheduling Algorithms
+
+class Process {
+    int id
+    int arrivalTime
+    int burstTime
+    int priority
+    int remainingTime
+    int waitingTime
+    int turnaroundTime
+}
+
+class Scheduler {
+    +fcfs(Process[] processes)
+    +pr(Process[] processes)
+    +spf(Process[] processes)
+    +rr(Process[] processes, int quantum)
+    +printProcessInfo(Process[] processes)
+}
+
+Process -- Scheduler
+
+note left of Process::id
+    进程ID
+end note
+note left of Process::arrivalTime
+    到达时间
+end note
+note left of Process::burstTime
+    执行时间
+end note
+note left of Process::priority
+    优先级
+end note
+note left of Process::remainingTime
+    剩余执行时间
+end note
+note left of Process::waitingTime
+    等待时间
+end note
+note left of Process::turnaroundTime
+    周转时间
+end note
+
+note left of Scheduler::fcfs
+    FCFS进程调度算法
+end note
+note left of Scheduler::pr
+    PR进程调度算法
+end note
+note left of Scheduler::spf
+    SPF进程调度算法
+end note
+note left of Scheduler::rr
+    RR进程调度算法
+end note
+note left of Scheduler::printProcessInfo
+    打印进程信息
+end note
+
+note right of Process
+    构造方法 Process(id, arrivalTime, burstTime, priority)
+end note
+
+Scheduler ..> Process : contains
+
+Process "1" --> "n" Process : 数组
+
+Scheduler --> Process : 创建进程
+
+Scheduler --> "*" Process : 调度进程
+
+@enduml

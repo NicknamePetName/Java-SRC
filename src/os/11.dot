@@ -1,0 +1,43 @@
+digraph G {
+    rankdir=LR;
+    node [shape=box, style=rounded];
+
+    Init [label="初始化"];
+    Loop [label="循环"];
+    Found [label="找到可执行的进程"];
+    NotFound [label="未找到可执行的进程"];
+    Finish [label="检查所有进程是否完成"];
+    Safe [label="安全状态"];
+    Unsafe [label="不安全状态"];
+
+    Init -> Loop;
+    Loop -> Found [label="找到可执行的进程"];
+    Loop -> NotFound [label="未找到可执行的进程"];
+    Found -> Loop [label="继续循环"];
+    Found -> Finish [label="所有进程已完成"];
+    NotFound -> Finish [label="所有进程已完成"];
+    Finish -> Safe [label="所有进程已完成"];
+    Finish -> Unsafe [label="存在未完成的进程"];
+    
+    subgraph cluster_Init {
+        style=dashed;
+        label="初始化";
+        Init;
+    }
+    
+    subgraph cluster_Loop {
+        style=dashed;
+        label="循环";
+        Loop;
+        Found;
+        NotFound;
+    }
+    
+    subgraph cluster_Finish {
+        style=dashed;
+        label="检查进程完成";
+        Finish;
+        Safe;
+        Unsafe;
+    }
+}

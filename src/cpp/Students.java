@@ -37,7 +37,7 @@ public class Students implements  Serializable{
         this.age=age;
     }
 }
-class ManageSystem{
+class ManageSysteml{
     private final static String filename="students.dat";
     private ArrayList<Students>arrayList=new ArrayList<>();
     //主界面
@@ -49,7 +49,7 @@ class ManageSystem{
     JButton searchButton=new JButton("查找学生");
     JButton showButton=new JButton("显示学生");
     JButton exitButton=new JButton("退出系统");
-    public ManageSystem(){
+    public ManageSysteml(){
         //设置界面的大小，位置，以及组件
         jFrame.setSize(800,700);
         jFrame.setLocation(600,200);
@@ -691,8 +691,8 @@ class ManageSystem{
 
 class ss {
     public static void main(String[] args) {
-        ManageSystem manageSystem = new ManageSystem();
-        manageSystem.Menu();
+        ManageSysteml manageSysteml = new ManageSysteml();
+        manageSysteml.Menu();
     }
 }
 
