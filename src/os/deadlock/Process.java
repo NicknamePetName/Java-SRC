@@ -49,14 +49,14 @@ public class Process {
         long[] threadIds = bean.findDeadlockedThreads();
         if (threadIds != null) {
             System.out.println("Deadlock detected:");
-            for (long threadId : threadIds) {
-                for (Thread thread : Thread.getAllStackTraces().keySet()) {
-                    if (thread.getId() == threadId) {
-                        System.out.println(thread.getName() + " is deadlocked.");
-                        thread.interrupt(); // 终止进程
-                    }
-                }
-            }
+            // for (long threadId : threadIds) {
+            //     for (Thread thread : Thread.getAllStackTraces().keySet()) {
+            //         if (thread.getId() == threadId) {
+            //             System.out.println(thread.getName() + " is deadlocked.");
+            //             thread.interrupt(); // 终止进程
+            //         }
+            //     }
+            // }
         } else {
             System.out.println("No deadlock detected.");
             // 找到一个安全序列
