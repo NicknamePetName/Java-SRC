@@ -6,7 +6,7 @@
 · byte: 1个字节，-128~127 可以把int型常量赋值给byte.因为补码，所以负数多一  
 · long型：十进制(108L)、八进制(071232L)、十六进制(0x3ABCL)  
 · float:精度8  
-· double:精度16  
+· double:精度16 
 · java键盘输入 
 ```  
     Scanner scanner = new Scanner(System.in);  
